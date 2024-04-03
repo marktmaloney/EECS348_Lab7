@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Font Control</title>
+    <style>
+        p {
+            font-size: 18px;
+        }
+        .control {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<p>This course is an introduction to software development fundamentals and software engineering. It incorporates a thorough introduction to a compiled programming language. A baseline knowledge of tools and utilities is covered including the shell, common programs, version control, IDEs, editors, and build tools.</p>
+<div class="control">
+    <label for="color_r">Text R(0-255):</label>
+    <input type="text" id="color_r"><br>
+    <label for="color_g">Text G(0-255):</label>
+    <input type="text" id="color_g"><br>
+    <label for="color_b">Text B(0-255):</label>
+    <input type="text" id="color_b"><br>
+    <label for="border-width">Border Width:</label>
+    <input type="number" id="border-width" min="1" max="10" value="1"><br>
+    <label for="boarder_r">Background R(0-255):</label>
+    <input type="text" id="boarder_r"><br>
+    <label for="boarder_g">Background G(0-255):</label>
+    <input type="text" id="boarder_g"><br>
+    <label for="boarder_b">Background B(0-255):</label>
+    <input type="text" id="boarder_b"><br>
+    <button onclick="applyStyles()">Apply</button>
+</div>
+
+<script>
+    function applyStyles() {
+        const colorR = document.getElementById('color_r').value;
+        const colorG = document.getElementById('color_g').value;
+        const colorB = document.getElementById('color_b').value;
+        const borderWidth = document.getElementById('border-width').value;
+        const boardR = document.getElementById('boarder_r').value;
+        const boardG = document.getElementById('boarder_g').value;
+        const boardB = document.getElementById('boarder_b').value;
+        
+        const color = `rgb(${colorR}, ${colorG}, ${colorB})`;
+        const bcolor = `rgb(${boardR}, ${boardG}, ${boardB})`;
+        
+        const paragraph = document.querySelector('p');
+        paragraph.style.color = color;
+        paragraph.style.border = `${borderWidth}px solid ${color}`;
+        paragraph.style.backgroundColor = bcolor;
+        
+    }
+</script>
+</body>
+</html>
